@@ -61,13 +61,10 @@
                         text: '¡Te comparto esta web para que disfrutes de toda su magia!',
                         url: 'https://davidmartinperez.github.io'
                     })
-                    .then( () => {
-                        console.log('¡Gracias por compartir!🎉🥓');
-                    })
                     .catch( err => {
                         alert('¿Por qué no me compartiste?😭😭')
                         console.log(`Por lo visto algo salio mal...`, err.message);
-                    } )
+                    })
                 } else {
                     alert('Tú navegador no es compatible, prueba desde un dispositivo móvil o tablet!')
                 }
