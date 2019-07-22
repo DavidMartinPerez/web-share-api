@@ -61,6 +61,9 @@
                         text: '¡Te comparto esta web para que disfrutes de toda su magia!',
                         url: 'https://davidmartinperez.github.io'
                     })
+                    .then( () => {
+                        alert('¡Gracias por compartir!🎉🥓');
+                    })
                     .catch( err => {
                         alert('¿Por qué no me compartiste?😭😭')
                         console.log(`Por lo visto algo salio mal...`, err.message);
