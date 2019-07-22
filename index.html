@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>WEB SHARE API</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+        <style>
+            body{
+                display:flex;
+                align-content: center;
+                justify-content: center;
+                text-align: center;
+                font-family: 'Nunito', sans-serif;
+            }
+            h1{ margin-bottom: 5px;}
+            h2{ margin-top: 0px; }
+            button{
+                width: 300px;
+                height: 100px;
+                background: pink;
+                border: none;
+                border-radius: 10px;
+                color: rgb(36, 12, 12);
+                font-size: 22px;
+                text-shadow: 1px 1px rgb(163, 170, 156);
+            }
+            .info {
+                margin-top: 20px;
+                font-size: 12px;
+            }
+            .info p {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Hola,</h1>
+            <h2>Esto es una prueba de web share api</h2>
+            <p>Pulsa en el botón grande para compartir <br>mi página web</p>
+            <button id="share" >🎉🥓 ¡Pruebalo! 🥓🥳</button>
+            <div class="info">
+                <p>Esta funcionalidad solo funciona en navegadores móviles y Safari... </p>
+                <p>Solo Safari 12.1, Chrome 61, Opera Android 48</p>
+            </div>
+        </main>
+        <script>
+            var shareButton = document.getElementById( "share" );
+
+            shareButton.onclick = () => {
+                if( 'share' in navigator ) {
+                    navigator.share({
+                        title: 'The amazing David Web!',
+                        text: '¡Te comparto esta web para que disfrutes de toda su magia!',
+                        url: 'https://davidmartinperez.github.io'
+                    })
+                    .then( () => {
+                        console.log('¡Gracias por compartir!🎉🥓');
+                    })
+                    .catch( err => {
+                        alert('¿Por qué no me compartiste?😭😭')
+                        console.log(`Por lo visto algo salio mal...`, err.message);
+                    } )
+                } else {
+                    alert('Tú navegador no es compatible, prueba desde un dispositivo móvil o tablet!')
+                }
+            }
+        </script>
+    </body>
+</html>
